@@ -5,15 +5,15 @@
  */
 package edu.eci.arsw.persistence;
 
-import edu.eci.arsw.model.Game;
 import edu.eci.arsw.model.User;
 import java.util.List;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
 /**
  *
  * @author daferrotru
  */
-public interface UserPersistence {
+public interface UserPersistence extends MongoRepository<User, String>{
 
     /**
      * Registers the user
@@ -21,6 +21,7 @@ public interface UserPersistence {
      * @param user
      * @throws edu.eci.arsw.persistence.PersistenceException
      */
+    
     public void registerUser(User user) throws PersistenceException;
 
     public List<User> getAllUsers();

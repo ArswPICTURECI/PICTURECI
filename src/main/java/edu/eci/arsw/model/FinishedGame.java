@@ -6,11 +6,13 @@
 package edu.eci.arsw.model;
 
 import java.util.Date;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  *
  * @author rami
  */
+@Document(collection = "games")
 public class FinishedGame extends Game {
 
     private int room;

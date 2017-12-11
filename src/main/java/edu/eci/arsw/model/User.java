@@ -5,23 +5,29 @@
  */
 package edu.eci.arsw.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 /**
  *
  * @author daferrotru
  */
+@Document(collection = "users")
 public class User {
 
+    @Id
     private String name = null;
-    private String password= null;
+    
+    private String password = null;
 
     public User(String name, String password) {
         this.name = name;
-        this.password=password;
+        this.password = password;
 
     }
-    
-    public User(){
-        
+
+    public User() {
+
     }
 
     public String getName() {
@@ -39,7 +45,7 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-    
+
     @Override
     public String toString() {
         return "User{" + "name=" + name + ", password=" + password + '}';
