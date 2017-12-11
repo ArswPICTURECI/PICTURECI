@@ -12,11 +12,13 @@ import edu.eci.arsw.persistence.PersistenceException;
 import java.util.List;
 import java.util.concurrent.ConcurrentLinkedDeque;
 import java.util.stream.Collectors;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author rami
  */
+@Service
 public class InMemoryGamePersistence implements GamePersistence {
 
     private final ConcurrentLinkedDeque<Game> finishedGames = new ConcurrentLinkedDeque<>();
