@@ -11,13 +11,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-import edu.eci.arsw.persistence.UserPersistence;
+//import edu.eci.arsw.persistence.UserPersistence;
 
 /**
  *
  * @author daferrotru
  */
-public class InMemoryUserPersistence implements UserPersistence {
+public class InMemoryUserPersistence {
 
     private final ConcurrentMap<String, User> users = new ConcurrentHashMap<>();
 
