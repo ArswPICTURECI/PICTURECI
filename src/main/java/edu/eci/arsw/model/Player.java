@@ -22,11 +22,9 @@ public class Player {
         this.room = room;
         this.score = 0;
     }
-    public Player(String name, int room, int rol,int score) {
-        this.name = name;
-        this.rol = rol;
-        this.room = room;
-        this.score = score;
+    
+    public Player() {
+
     }
 
     public String getName() {
