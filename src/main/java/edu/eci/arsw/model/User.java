@@ -5,6 +5,7 @@
  */
 package edu.eci.arsw.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -16,14 +17,23 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class User {
 
     @Id
-    private String _id = null;
+    private String id = null;
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+    
+    @JsonProperty
     private String name = null;
 
+    @JsonProperty
     private String password = null;
 
     public User(String name, String password) {
-        this._id = name;
         this.name = name;
         this.password = password;
 
@@ -51,7 +61,6 @@ public class User {
 
     @Override
     public String toString() {
-        return "{\"_id\": " + _id + ", \"name\":" + name + ", \"password\":" + password + '}';
+        return "{\"name\":" + name + ", \"password\":" + password + '}';
     }
-
 }

@@ -5,20 +5,13 @@
  */
 package edu.eci.arsw.persistence.mongodb;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mongodb.BasicDBObject;
-import com.mongodb.DBObject;
 import edu.eci.arsw.model.User;
 import edu.eci.arsw.persistence.PersistenceException;
 import edu.eci.arsw.persistence.UserPersistence;
-import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.BasicQuery;
 import org.springframework.stereotype.Service;
 
 /**
@@ -43,6 +36,6 @@ public class UserPersistenceController implements UserPersistence {
 
     @Override
     public User getUser(String userName) throws PersistenceException {
-        return mongoTemp.findById(userName, User.class, "users");
+        return mongoTemp.findById(new BasicQuery("'name' : ?0"), User.class, "users");
     }
 }

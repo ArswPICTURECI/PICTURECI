@@ -40,6 +40,10 @@ public class Game {
         this.winner = DIBUJAN;
     }
 
+    public Game() {
+
+    }
+
     protected Game(Game game) {
         this.count_adivinan = game.getCount_adivinan();
         this.count_dibujan = game.getCount_dibujan();

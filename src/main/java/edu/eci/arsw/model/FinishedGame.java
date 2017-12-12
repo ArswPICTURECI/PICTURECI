@@ -5,9 +5,8 @@
  */
 package edu.eci.arsw.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Date;
-import java.util.Random;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
@@ -17,12 +16,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "games")
 public class FinishedGame extends Game {
 
-    @Id
-    private final int _id;
-
+    @JsonProperty
     private int room;
 
-    private final Date date;
+    @JsonProperty
+    private Date date;
 
     public Date getDate() {
         return date;
@@ -43,7 +41,9 @@ public class FinishedGame extends Game {
         super(g);
         this.room = room;
         this.date = new Date();
-        Random rdm = new Random();
-        this._id = rdm.nextInt();
+    }
+
+    public FinishedGame() {
+
     }
 }
