@@ -37,6 +37,4 @@ public interface PictureciCache {
     public boolean tryWord(int gameid, int mode, DrawingGuess attempt) throws CacheException;
     
     public int currentRandomRoom();
-    
-    public void setScore(Player player);
 }

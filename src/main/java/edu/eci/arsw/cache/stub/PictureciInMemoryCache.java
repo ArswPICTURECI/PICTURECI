@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.eci.arsw.cache;
+package edu.eci.arsw.cache.stub;
 
+import edu.eci.arsw.cache.CacheException;
+import edu.eci.arsw.cache.PictureciCache;
 import edu.eci.arsw.model.Game;
 import edu.eci.arsw.model.Player;
 import edu.eci.arsw.model.RandomGame;
@@ -205,10 +207,5 @@ public class PictureciInMemoryCache implements PictureciCache {
             default:
                 throw new CacheException("Invalid State");
         }
-    }
-
-    @Override
-    public void setScore(Player player) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

@@ -3,16 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.eci.arsw.cache;
+package edu.eci.arsw.cache.redis;
 
+import edu.eci.arsw.cache.CacheException;
+import edu.eci.arsw.cache.PictureciCache;
 import edu.eci.arsw.model.Game;
 import edu.eci.arsw.model.Player;
-import edu.eci.arsw.model.RedisGame;
 import edu.eci.arsw.model.entities.DrawingGuess;
+import edu.eci.arsw.model.entities.GameException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.stereotype.Service;
 
 /**
  *
@@ -37,20 +40,11 @@ public class PictureciRedisCache implements PictureciCache {
 
     @Override
     public Game getGame(int gameid, int mode) throws CacheException {
-        String gameId = "game:" + gameid;
-        String gameId2 = "game:" + gameid * -1;
-        int g2 = gameid * -1;
         switch (mode) {
             case Game.NORMAL:
-                if (!template.hasKey(gameId)) {
-                    throw new CacheException("This current room does not exist");
-                }
-                return new RedisGame(gameid, template);
+                return new RedisNormalGame(gameid, template);
             case Game.RANDOM:
-                if (!template.hasKey(gameId2)) {
-                    throw new CacheException("El juego no existe");
-                }
-                return new RedisGame(g2, template);
+                return new RedisRandomGame((-1) * gameid, template);
             default:
                 throw new CacheException("Invalid State");
         }
@@ -58,9 +52,12 @@ public class PictureciRedisCache implements PictureciCache {
 
     @Override
     public void addPlayer(int gameid, Player player) throws CacheException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        //String gameId = "game:" + gameid;
-
+        try {
+            getGame(gameid, Game.NORMAL).addPlayer(player);
+        } catch (GameException ex) {
+            Logger.getLogger(PictureciRedisCache.class.getName()).log(Level.SEVERE, null, ex);
+            throw new CacheException(ex.getMessage());
+        }
     }
 
     @Override
@@ -90,23 +87,16 @@ public class PictureciRedisCache implements PictureciCache {
 
     @Override
     public boolean checkIfReady(int gameid, int mode) throws CacheException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return getGame(gameid, mode).ready();
     }
 
     @Override
     public boolean tryWord(int gameid, int mode, DrawingGuess attempt) throws CacheException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return getGame(gameid, mode).tryWord(attempt);
     }
 
     @Override
     public int currentRandomRoom() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    @Override
-    public void setScore(Player player) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-
 }

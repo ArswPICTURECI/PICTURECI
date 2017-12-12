@@ -13,16 +13,20 @@ import java.util.Random;
  * @author rami
  */
 public class RandomGame extends Game {
-    
+
     public static final int RANDOM_ROL = -3;
-    
+
     private final Random random_rol;
-    
+
     public RandomGame(String word) {
         super(word);
         random_rol = new Random();
     }
-    
+
+    public RandomGame() {
+        random_rol = new Random();
+    }
+
     @Override
     public void addPlayer(Player player) throws GameException {
         if (player.getRol() != -3) {
