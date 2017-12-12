@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Modo de Juego</title>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="/assets/css/bg.css" type="text/css"/>
+        <link rel="stylesheet" href="/assets/css/partida.css" type="text/css"/>
+        <script src="/webjars/jquery/jquery.min.js"></script>
+        <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+        <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+        <script src="/js/App.js"></script>
+    </head>
+    <body>
+        <h1>Seleccione Modo de Juego</h1>
+        <br>
+        <br>
+        <br>
+        <form>
+            <div>
+                <button type="button" onclick="app.randomGame()" style="text-align:center">Modo Random</button>
+                <br>
+                <br>
+                <button type="button" onclick="app.normalGame()" style="text-align:center">Modo Normal</button>
+                <br>
+                <br>
+                <button type="button" onclick="app.finishedGames()" style="text-align:center">Consultar Partidas Jugadas</button>
+                <br>
+                <br>
+                <button type="button" onclick="app.principal()" style="text-align:center">Cerrar Sesion</button>
+            </div>
+        </form>
+    </body>
+</html>

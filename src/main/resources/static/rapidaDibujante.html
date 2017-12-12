@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>PicturEci - Rapida D</title>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="/assets/css/main.css" type="text/css"/>
+        <link rel="stylesheet" href="/assets/css/rapida.css" type="text/css"/>
+        <link rel="stylesheet" href="/assets/css/gamePanel.css" type="text/css"/>
+        <link rel="stylesheet" href="assets/css/bg.css" />
+        <script src="/webjars/jquery/jquery.min.js"></script>
+        <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+        <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+        <script src="/js/TableroApp.js"></script>
+        <script src="/js/App.js"></script>
+    </head>
+    <body  onload="app.subscribeToWinner(), tableroapp.init('Dibujar'), app.tempo()">
+        <br>
+        <h1>Partida Rapida Pictureci</h1>
+        <br>
+        <h1>Eres Dibujante</h1>
+
+        <!--Aca se actualiza lo que se deberia dibujar-->
+        <h1 id="whatToDraw">Dibuja un perro</h1>
+        <br>
+        <br>
+        <div id="gameTable">
+            <!--<p>Tiempo Restante:<p> 
+            <p id="Restante">180</p> 
+            <p>Segundos</p> -->
+            <table id="tablaGame" border="1" style="width:50%" class="tabla">
+                <thead>
+                    <tr>
+                        <th>Tiempo Restante(s)</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p id="Restante">30</p> 
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>    
+            </table>
+        </div><br>
+        <canvas class="canvas" id="myCanvas" width="800" height="600"></canvas>        
+        <br>
+        <button type="button" onclick="tableroapp.erase()" >Borrar Todo</button>
+        <br>
+        <button type="button" onclick="app.backToGameMode()" disabled>Salir del Juego</button>
+    </body>
+</html>

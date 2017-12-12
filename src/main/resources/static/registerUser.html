@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>REGISTRO USUARIO PICTURECI</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/assets/css/main.css" />
+        <link rel="stylesheet" href="assets/css/bg.css" />
+        <link rel="stylesheet" href="assets/css/registro.css" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="/webjars/jquery/jquery.min.js"></script>
+        <!--script src="/webjars/sockjs-client/sockjs.min.js"></script>
+        <script src="/webjars/stomp-websocket/stomp.min.js"></script-->
+        <script src="/js/App.js"></script>
+    </head>
+    <body>      
+        <div class="registro">
+            <h1>Registro de Usuario</h1>
+            <br>
+
+            <form>
+                <font class="username">Nombre de usuario: </font>
+                <input type="text" name="username" id="username" value="" placeholder="Ingrese un usuario valido" />
+                <input type="password" name="pass" id="password" value="" placeholder="Ingrese contraseña" />
+                <button type="button" onclick="app.addUser($('#username').val(), $('#password').val())">Registrar</button>
+            </form>
+
+            <div id="registerTable" class="registerTable">
+
+                <br>
+                <table id="tablaUsers" border="1" style="width:50%" class="tabla">
+                    <thead>
+                        <tr>
+                            <th>Nombre de usuario</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <br>
+                <button type="button" onclick="app.queryUsers()">Consultar Usuarios Registrados</button><br>
+                <button type="button" onclick="app.principal()">Regresar al menú</button>
+            </div>
+        </div>
+
+
+    </body>
+</html>

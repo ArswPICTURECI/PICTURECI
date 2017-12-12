@@ -1,0 +1,43 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 29, 2017, 4:36:43 PM
+    Author     : rami
+*/
+
+h1{
+    text-align: center;
+    padding: 5px;
+    color: whitesmoke;
+}
+
+form{
+    margin: 20px 0;
+}
+form input, button{
+    padding: 5px;
+    text-align: center;
+}
+
+button,.estilo,.numeroSala{
+    margin:auto;
+    display:block;
+}
+
+/* BUTTON STYLES */
+button{
+    padding:14px 32px;
+    font-family:helvetica;
+    font-size:14px;
+    font-weight:100;
+    color:#fff;
+    background: #587286;
+    border:0;
+    font-weight:100;
+}
+button:hover{
+    background: #3B5C76;
+}

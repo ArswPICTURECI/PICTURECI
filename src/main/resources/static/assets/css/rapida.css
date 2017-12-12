@@ -1,0 +1,46 @@
+canvas{
+    border: 1px solid #000000
+}
+h1{
+    text-align: center;
+    padding: 5px;
+    color: whitesmoke;
+}
+p{
+    text-align: center;
+    padding: 5px;
+    color: whitesmoke;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+button{
+    padding: 5px;
+    text-align: center;
+}
+
+button,.guess{
+    margin:auto;
+    display:block;
+}
+
+/* BUTTON STYLES */
+button{
+    padding:14px 32px;
+    font-family:helvetica;
+    font-size:14px;
+    font-weight:100;
+    color:#fff;
+    background: #587286;
+    border:0;
+    font-weight:100;
+}
+button:hover{
+    background: #3B5C76;
+}
+.canvas{
+    padding: 0;
+    margin: auto;
+    display: block;
+}

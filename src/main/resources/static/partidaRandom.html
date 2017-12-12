@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Juego Random</title>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="/assets/css/bg.css" type="text/css"/>
+        <link rel="stylesheet" href="/assets/css/partida.css" type="text/css"/>
+        <script src="/webjars/jquery/jquery.min.js"></script>
+        <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+        <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+        <script src="/js/App.js"></script>
+    </head>
+    <body onload="sessionStorage.setItem('mode', 'random')">
+        <form>
+            <h1>Juego Random</h1>
+        </form>
+        <h1>A continuación Jugarás con un rol aleatorio</h1>
+        
+        <button id="iniciarpartidabtn" onclick="app.connectToRandomGame()" >Iniciar Partida</button><br>
+        
+        <h1 id="messageCancel"></h1>
+        <div id="cancelqueuebtn"></div>
+        
+        <button id="regresarbtn" onclick="app.backToGameMode()">Regresar</button>
+    </body>
+</html>
