@@ -12,6 +12,8 @@ import edu.eci.arsw.model.User;
  * @author rami
  */
 public abstract class UserPersistenceAbstractController implements UserPersistence {
+    
+    
 
     @Override
     public void registerUser(User user) throws PersistenceException {
