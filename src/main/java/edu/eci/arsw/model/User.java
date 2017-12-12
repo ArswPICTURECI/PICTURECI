@@ -16,9 +16,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class User {
 
     @Id
-    private String _id = null;
+    private String _id; 
 
-    private String name = null;
+    private String name=null;
 
     private String password = null;
 
