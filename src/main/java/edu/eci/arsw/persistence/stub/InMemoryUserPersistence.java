@@ -11,13 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-import edu.eci.arsw.persistence.UserPersistence;
 
 /**
  *
  * @author daferrotru
  */
-public class InMemoryUserPersistence implements UserPersistence {
+public class InMemoryUserPersistence {
 
     private final ConcurrentMap<String, User> users = new ConcurrentHashMap<>();
 
@@ -31,7 +30,7 @@ public class InMemoryUserPersistence implements UserPersistence {
         users.putIfAbsent("Ana", u3);
     }
 
-    @Override
+//    @Override
     public void registerUser(User user) throws PersistenceException {
         synchronized (users) {
             if (users.get(user.getName()) == null) {
@@ -42,12 +41,12 @@ public class InMemoryUserPersistence implements UserPersistence {
         }
     }
 
-    @Override
+//    @Override
     public List<User> getAllUsers() {
         return new ArrayList<>(users.values());
     }
 
-    @Override
+//    @Override
     public User getUser(String username) throws PersistenceException {
         User user = users.get(username);
         if (user != null) {
@@ -57,7 +56,7 @@ public class InMemoryUserPersistence implements UserPersistence {
         }
     }
 
-    @Override
+//    @Override
     public void addUser(User user) throws PersistenceException {
         users.putIfAbsent(user.getName(), user);
 
