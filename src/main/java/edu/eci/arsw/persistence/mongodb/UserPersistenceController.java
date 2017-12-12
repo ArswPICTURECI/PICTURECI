@@ -35,7 +35,7 @@ public class UserPersistenceController implements UserPersistence {
     }
 
     @Override
-    public User getUser(String userName) throws PersistenceException {
-        return mongoTemp.findById(new BasicQuery("'name' : ?0"), User.class, "users");
+    public User getUser(String username) throws PersistenceException {
+        return mongoTemp.findOne(new BasicQuery("{ name: \"" + username + "\" }"), User.class, "users");
     }
 }
