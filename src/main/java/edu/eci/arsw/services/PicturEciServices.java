@@ -63,7 +63,7 @@ public class PicturEciServices {
     }
 
     public void addFinishedGame(int gameid, Game game) throws PersistenceException {
-        gep.addFinishedGame(gameid, game);
+        gep.addFinishedGame(new FinishedGame(game, gameid));
     }
 
     public void addPlayer(int gameid, Player player) throws CacheException {
@@ -111,7 +111,5 @@ public class PicturEciServices {
     //Finished Games
     public List<FinishedGame>getFinishedGames() throws PersistenceException{
         return gep.getFinishedGames();
-    }
-    
-    
+    }    
 }

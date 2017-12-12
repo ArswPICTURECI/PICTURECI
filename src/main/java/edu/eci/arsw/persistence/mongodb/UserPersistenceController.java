@@ -33,18 +33,7 @@ public class UserPersistenceController implements UserPersistence {
 
     @Override
     public void addUser(User user) throws PersistenceException {
-        ObjectMapper mapper = new ObjectMapper();
-        TypeReference<HashMap<String, Object>> typeRef
-                = new TypeReference<HashMap<String, Object>>() {
-        };
-        try {
-            HashMap<String, Object> map = mapper.readValue(user.toString(), typeRef);
-            DBObject dbObject = new BasicDBObject(map);
-            mongoTemp.save(dbObject, "users");
-        } catch (IOException ex) {
-            Logger.getLogger(UserPersistenceController.class.getName()).log(Level.SEVERE, null, ex);
-            throw new PersistenceException(ex.getMessage());
-        }
+        mongoTemp.insert(user, "users");
     }
 
     @Override

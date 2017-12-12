@@ -6,7 +6,6 @@
 package edu.eci.arsw.persistence.stub;
 
 import edu.eci.arsw.model.FinishedGame;
-import edu.eci.arsw.model.Game;
 import edu.eci.arsw.persistence.GamePersistence;
 import edu.eci.arsw.persistence.PersistenceException;
 import java.util.List;
@@ -22,9 +21,9 @@ public class InMemoryGamePersistence implements GamePersistence {
     private final ConcurrentLinkedDeque<FinishedGame> finishedGames = new ConcurrentLinkedDeque<>();
 
     @Override
-    public void addFinishedGame(int gameid, Game game) throws PersistenceException {
+    public void addFinishedGame(FinishedGame game) throws PersistenceException {
         synchronized (finishedGames) {
-            finishedGames.add(new FinishedGame(game, gameid));
+            finishedGames.add(game);
         }
     }
 

@@ -6,25 +6,26 @@
 package edu.eci.arsw.persistence.mongodb;
 
 import edu.eci.arsw.model.FinishedGame;
-import edu.eci.arsw.model.Game;
 import edu.eci.arsw.persistence.GamePersistence;
 import edu.eci.arsw.persistence.PersistenceException;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author rami
  */
+@Service
 public class GamePersistenceController implements GamePersistence {
     
     @Autowired
     MongoTemplate mongoTemp = null;
 
     @Override
-    public void addFinishedGame(int gameid, Game game) throws PersistenceException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void addFinishedGame(FinishedGame game) throws PersistenceException {
+        mongoTemp.insert(game, "games");
     }
 
     @Override

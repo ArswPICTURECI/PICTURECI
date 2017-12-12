@@ -6,7 +6,6 @@
 package edu.eci.arsw.persistence;
 
 import edu.eci.arsw.model.FinishedGame;
-import edu.eci.arsw.model.Game;
 import java.util.List;
 
 /**
@@ -15,7 +14,7 @@ import java.util.List;
  */
 public interface GamePersistence {
 
-    public void addFinishedGame(int gameid, Game game) throws PersistenceException;
+    public void addFinishedGame(FinishedGame game) throws PersistenceException;
 
     public List<FinishedGame> getFinishedGames() throws PersistenceException;
 }
