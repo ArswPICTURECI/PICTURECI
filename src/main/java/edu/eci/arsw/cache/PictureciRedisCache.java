@@ -18,7 +18,6 @@ import org.springframework.stereotype.Service;
  *
  * @author daferrotru
  */
-@Service
 public class PictureciRedisCache implements PictureciCache {
 
     @Autowired

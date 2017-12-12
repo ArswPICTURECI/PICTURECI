@@ -7,6 +7,7 @@ package edu.eci.arsw.services;
 
 import edu.eci.arsw.cache.CacheException;
 import edu.eci.arsw.cache.PictureciCache;
+import edu.eci.arsw.model.FinishedGame;
 import edu.eci.arsw.model.Game;
 import edu.eci.arsw.model.Player;
 import edu.eci.arsw.model.User;
@@ -108,7 +109,7 @@ public class PicturEciServices {
     }
     
     //Finished Games
-    public List<Game>getFinishedGames() throws PersistenceException{
+    public List<FinishedGame>getFinishedGames() throws PersistenceException{
         return gep.getFinishedGames();
     }
     

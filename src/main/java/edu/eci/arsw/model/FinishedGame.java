@@ -6,6 +6,8 @@
 package edu.eci.arsw.model;
 
 import java.util.Date;
+import java.util.Random;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
@@ -14,6 +16,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
  */
 @Document(collection = "games")
 public class FinishedGame extends Game {
+
+    @Id
+    private final int _id;
 
     private int room;
 
@@ -38,5 +43,7 @@ public class FinishedGame extends Game {
         super(g);
         this.room = room;
         this.date = new Date();
+        Random rdm = new Random();
+        this._id = rdm.nextInt();
     }
 }

@@ -16,11 +16,14 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class User {
 
     @Id
+    private String _id = null;
+
     private String name = null;
-    
+
     private String password = null;
 
     public User(String name, String password) {
+        this._id = name;
         this.name = name;
         this.password = password;
 
@@ -48,7 +51,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "{" + "name=" + name + ", password=" + password + '}';
+        return "{\"_id\": " + _id + ", \"name\":" + name + ", \"password\":" + password + '}';
     }
 
 }
