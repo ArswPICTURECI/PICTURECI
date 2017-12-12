@@ -3,36 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.eci.arsw.persistence.impl;
+package edu.eci.arsw.persistence.stub;
 
-import edu.eci.arsw.model.FinishedGame;
-import edu.eci.arsw.model.Game;
-import edu.eci.arsw.model.Player;
 import edu.eci.arsw.model.User;
-//import edu.eci.arsw.persistence.DrawingNotFoundException;
-//import edu.eci.arsw.persistence.DrawingPersistenceException;
-//import java.util.HashMap;
 import org.springframework.stereotype.Service;
-import edu.eci.arsw.persistence.PicturEciPersistence;
 import edu.eci.arsw.persistence.PersistenceException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentLinkedDeque;
 import java.util.concurrent.ConcurrentMap;
-import java.util.stream.Collectors;
+import edu.eci.arsw.persistence.UserPersistence;
 
 /**
  *
  * @author daferrotru
  */
 @Service
-public class InMemoryPicturEciPersistence implements PicturEciPersistence {
+public class InMemoryUserPersistence implements UserPersistence {
 
     private final ConcurrentMap<String, User> users = new ConcurrentHashMap<>();
-    private final ConcurrentLinkedDeque<Game> finishedGames = new ConcurrentLinkedDeque<>();
 
-    public InMemoryPicturEciPersistence() {
+    public InMemoryUserPersistence() {
         User u1 = new User("Daniel", "123");
         User u2 = new User("Camilo", "123");
         User u3 = new User("Ana", "123");
@@ -72,22 +63,5 @@ public class InMemoryPicturEciPersistence implements PicturEciPersistence {
     public void addUser(User user) throws PersistenceException {
         users.putIfAbsent(user.getName(), user);
 
-    }
-
-    @Override
-    public void addFinishedGame(int gameid, Game game) throws PersistenceException {
-        synchronized (finishedGames) {
-            finishedGames.add(new FinishedGame(game, gameid));
-        }
-    }
-
-    @Override
-    public Game getFinishedGame(int gameid) throws PersistenceException {
-        throw new UnsupportedOperationException("Por implementar");
-    }
-
-    @Override
-    public List<Game> getFinishedGames() throws PersistenceException {
-        return finishedGames.stream().collect(Collectors.toList());
     }
 }

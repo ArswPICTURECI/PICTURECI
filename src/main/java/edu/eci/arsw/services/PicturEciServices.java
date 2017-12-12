@@ -11,14 +11,15 @@ import edu.eci.arsw.model.Game;
 import edu.eci.arsw.model.Player;
 import edu.eci.arsw.model.User;
 import edu.eci.arsw.model.entities.DrawingGuess;
+import edu.eci.arsw.persistence.GamePersistence;
 import edu.eci.arsw.persistence.PersistenceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import edu.eci.arsw.persistence.PicturEciPersistence;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import edu.eci.arsw.persistence.UserPersistence;
 
 /**
  *
@@ -28,7 +29,10 @@ import java.util.logging.Logger;
 public class PicturEciServices {
 
     @Autowired
-    PicturEciPersistence pep = null;
+    UserPersistence pep = null;
+    
+    @Autowired
+    GamePersistence gep = null;
 
     @Autowired
     PictureciCache cache = null;
@@ -62,11 +66,7 @@ public class PicturEciServices {
     }
 
     public void addFinishedGame(int gameid, Game game) throws PersistenceException {
-        pep.addFinishedGame(gameid, game);
-    }
-
-    public Game getFinishedGame(int gameid) throws PersistenceException {
-        return pep.getFinishedGame(gameid);
+        gep.addFinishedGame(gameid, game);
     }
 
     public void addPlayer(int gameid, Player player) throws CacheException {
@@ -113,7 +113,7 @@ public class PicturEciServices {
     
     //Finished Games
     public List<Game>getFinishedGames() throws PersistenceException{
-        return pep.getFinishedGames();
+        return gep.getFinishedGames();
     }
     
     

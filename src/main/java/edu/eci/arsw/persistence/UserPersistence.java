@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author daferrotru
  */
-public interface PicturEciPersistence {
+public interface UserPersistence {
 
     /**
      * Registers the user
@@ -28,10 +28,4 @@ public interface PicturEciPersistence {
     public User getUser(String userName) throws PersistenceException;
 
     public void addUser(User user) throws PersistenceException;
-
-    public void addFinishedGame(int gameid, Game game) throws PersistenceException;
-
-    public Game getFinishedGame(int gameid) throws PersistenceException;
-
-    public List<Game> getFinishedGames() throws PersistenceException;
 }

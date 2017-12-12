@@ -7,7 +7,7 @@ package edu.eci.arsw.PicturEci.test.persistence.impl;
 
 import edu.eci.arsw.model.User;
 import edu.eci.arsw.persistence.PersistenceException;
-import edu.eci.arsw.persistence.impl.InMemoryPicturEciPersistence;
+import edu.eci.arsw.persistence.stub.InMemoryUserPersistence;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.Test;
@@ -21,7 +21,7 @@ public class InMemoryPersistenceTest {
 
     @Test
     public void registerNewUser() throws PersistenceException {
-        InMemoryPicturEciPersistence ipep = new InMemoryPicturEciPersistence();
+        InMemoryUserPersistence ipep = new InMemoryUserPersistence();
         User us1 = new User("Laura","123");
         ipep.registerUser(us1);
         assertTrue(ipep.getAllUsers().contains(us1));
@@ -29,7 +29,7 @@ public class InMemoryPersistenceTest {
 
     @Test
     public void registerUserWithRolAndRoom() throws PersistenceException {
-        InMemoryPicturEciPersistence ipep = new InMemoryPicturEciPersistence();
+        InMemoryUserPersistence ipep = new InMemoryUserPersistence();
         User us1 = new User("Laura", "123");
         User us2 = new User("Andres", "123");
         ipep.registerUser(us1);
@@ -40,7 +40,7 @@ public class InMemoryPersistenceTest {
 
     @Test
     public void registerUsers() throws PersistenceException {
-        InMemoryPicturEciPersistence ipep = new InMemoryPicturEciPersistence();
+        InMemoryUserPersistence ipep = new InMemoryUserPersistence();
         User us1 = new User("Laura", "123");
         User us2 = new User("Andres", "123");
         User us3 = new User("Leonardo","123");
