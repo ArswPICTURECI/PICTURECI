@@ -6,7 +6,6 @@
 package edu.eci.arsw.persistence.stub;
 
 import edu.eci.arsw.model.User;
-import org.springframework.stereotype.Service;
 import edu.eci.arsw.persistence.PersistenceException;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +17,6 @@ import edu.eci.arsw.persistence.UserPersistence;
  *
  * @author daferrotru
  */
-@Service
 public class InMemoryUserPersistence implements UserPersistence {
 
     private final ConcurrentMap<String, User> users = new ConcurrentHashMap<>();

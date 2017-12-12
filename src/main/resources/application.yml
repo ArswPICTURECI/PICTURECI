@@ -1,0 +1,8 @@
+spring:
+  data:
+    mongodb:
+      host: ds129166.mlab.com
+      port: 29166
+      database: pictureci-arsw
+      username: pictureci
+      password: pictureci
