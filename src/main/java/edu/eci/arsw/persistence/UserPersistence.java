@@ -16,16 +16,10 @@ import org.springframework.data.mongodb.repository.Query;
  */
 public interface UserPersistence extends MongoRepository<User, String> {
 
-    /**
-     * Registers the user
-     *
-     * @param user
-     * @throws edu.eci.arsw.persistence.PersistenceException
-     */
-    public void registerUser(User user) throws PersistenceException;
-
+    @Query("{}")
     public List<User> getAllUsers();
 
+    @Query("{ 'name' : ?0 }")
     public User getUser(String userName) throws PersistenceException;
 
     public void addUser(User user) throws PersistenceException;

@@ -45,10 +45,6 @@ public class PicturEciServices {
         return cache.getGame(gameid, mode);
     }
 
-    public void registerUser(User user) throws PersistenceException {
-        pep.registerUser(user);
-    }
-
     public void removeFromCache(int gameid, int mode) throws CacheException {
         cache.deleteGame(gameid, mode);
     }
