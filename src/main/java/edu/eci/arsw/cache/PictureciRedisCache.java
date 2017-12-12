@@ -25,14 +25,14 @@ public class PictureciRedisCache implements PictureciCache {
 
     @Override
     public void createGame(int gameid, String word) throws CacheException {
-        //String game = "game:" + gameid;
-        //if (template.hasKey(game)) {
-        //    throw new CacheException("La sala ya se encuentra creada");
-        //} else {
-        //    template.opsForHash().put(game, "word", word);
-        //    template.opsForHash().put(game, "guessedWord", "");
-        //    template.opsForHash().put(game, "winner", "");
-        //}
+        String game = "game:" + gameid;
+        if (template.hasKey(game)) {
+            throw new CacheException("La sala ya se encuentra creada");
+        } else {
+            template.opsForHash().put(game, "word", word);
+            template.opsForHash().put(game, "guessedWord", "");
+            template.opsForHash().put(game, "winner", "");
+        }
     }
 
     @Override
